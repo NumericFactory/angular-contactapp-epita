@@ -4,5 +4,5 @@ p {
 .sidebar {
   position: sticky;
   background:#f3f3f3;
-  min-width: 370px;
+  width: 370px;
 }
