@@ -17,11 +17,13 @@ export class AppComponent  {
     this.isLoading$ = this.loaderService.isLoading$;
   }
 
-  setToken() {
+  setToken(ev) {
+    ev.preventDefault();
     this.authService.setTokenInLocalStorage('f0cb8a50aa5a42eaf3c68511c73742534dcf51dec7e3c71f8aef0a7541a39d8c');
   }
 
-  logout() {
+  logout(ev) {
+    ev.preventDefault();
     localStorage.clear()
   }
 }

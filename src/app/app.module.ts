@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { ContactlistComponent } from './contactlist/contactlist.component';
-import { ContactsidebarComponent } from './contactsidebar/contactsidebar.component';
+import { ContactlistComponent } from './contact-container/contactlist/contactlist.component';
+import { ContactsidebarComponent } from './contact-container/contactsidebar/contactsidebar.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { PersoUppercasePipe } from './shared/perso-uppercase.pipe';
 import { UserService } from './services/user.service';
@@ -17,6 +17,7 @@ import { TokenInterceptor } from './services/token.interceptor';
 import { MaterialModule } from './shared/material/material.module';
 import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './services/loader.interceptor';
+import { ContactContainerComponent } from './contact-container/contact-container.component';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { LoaderInterceptor } from './services/loader.interceptor';
     AppRoutingModule,
     MaterialModule 
   ],
-  declarations: [ AppComponent, ContactlistComponent, ContactsidebarComponent, PersoUppercasePipe, ApiComponent ],
+  declarations: [ AppComponent, ContactlistComponent, ContactsidebarComponent, PersoUppercasePipe, ApiComponent, ContactContainerComponent ],
   bootstrap:    [ AppComponent ],
   providers: [
     UserService, AuthService, LoaderService,
