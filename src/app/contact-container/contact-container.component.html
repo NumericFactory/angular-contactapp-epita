@@ -1,19 +1,21 @@
- <!-- sidebar -->
-<div class="col-3 sidebar">
-  <div class="sidebar-sticky">
-    <!-- COMPONENT contactsidebar  -->
-    <app-contactsidebar></app-contactsidebar>  
+<div class="row">
+  <!-- sidebar -->
+  <div class="col-3 sidebar">
+    <div class="sidebar-sticky">
+      <!-- COMPONENT contactsidebar  -->
+      <app-contactsidebar></app-contactsidebar>  
+    </div>
   </div>
-</div>
 
-  <!-- contenu -->
-<div class="col-9">
-  <!-- COMPONENT contactlist  -->
+    <!-- contenu -->
+  <div class="col-9">
+    <!-- COMPONENT contactlist  -->
 
-  <!-- <app-contactlist></app-contactlist> --> 
-  <!-- <app-api></app-api> -->
-  <router-outlet></router-outlet> 
-  <!-- Un component qui se charge d'afficher le bon component
-  lorsque l'utilisateur navigue et change d'url -->
-  
-</div>
+    <!-- <app-contactlist></app-contactlist> --> 
+    <!-- <app-api></app-api> -->
+    <router-outlet></router-outlet> 
+    <!-- Un component qui se charge d'afficher le bon component
+    lorsque l'utilisateur navigue et change d'url -->
+    
+  </div>
+ </div>
