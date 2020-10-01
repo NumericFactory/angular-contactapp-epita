@@ -18,7 +18,7 @@ export class ContactlistComponent implements OnInit {
   sortByNameAscOrDsc:string='ASC';
   favsView:boolean = false; //affiche la vue favoris ou la vue list
 
-  constructor(private userService:UserService ) { }
+  constructor(public userService:UserService ) { }
 
   ngOnInit() {
    // 1 Je fais la requete AJAX

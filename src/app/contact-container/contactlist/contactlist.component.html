@@ -1,14 +1,9 @@
-<!-- FAVS -->
-<div *ngIf="favsView" class="favs">
-  <app-contactsidebar></app-contactsidebar>
-</div>
-
 <!-- TOOLBAR -->
   <div class="d-flex justify-content-between align-items-center px-3 py-1">
     <h4 class="m-2" *ngIf="!favsView && meta$ | async as metausers">
       <i class="fas fa-users"></i> {{ metausers.pagination?.total }}
     </h4>
-    <h4 *ngIf="favsView && favs$ | async as favs" class="m-2">
+    <h4 *ngIf="favsView && userService.favs$ | async as favs" class="m-2">
       {{ favs.length }} Favs
     </h4>
 
@@ -26,6 +21,11 @@
       </button>
     </span>
 
+  </div>
+
+  <!-- FAVS -->
+  <div *ngIf="favsView" class="favs">
+    <app-contactsidebar></app-contactsidebar>
   </div>
 
   <div *ngIf="!favsView">
