@@ -34,7 +34,8 @@ export class ContactlistComponent implements OnInit {
   //   this.subscription.unsubscribe()
   // }
 
-  addUserToFavs(contact:User):void {
+  addUserToFavs(ev, contact:User):void {
+    ev.stopPropagation();
     // console.log(this.userService.getFavsValue()); // []
     let indexOfContact =  this.userService.getFavsValue().indexOf(contact);
     let favs = [];

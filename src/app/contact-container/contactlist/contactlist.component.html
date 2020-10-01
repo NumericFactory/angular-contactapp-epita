@@ -35,7 +35,7 @@
           <!-- espace 2 du li  -->
           <span>
               <!-- Ajouté le {{contact.created_at | date:'dd/MM/yyyy'}} -->
-              <button (click)="addUserToFavs(contact)" class="btn btn-light">
+              <button (click)="addUserToFavs($event, contact)" class="btn btn-light">
                   <i  [class.fas]="isFav(contact)" 
                       [class.far]="isFav(contact)==false" 
                       [style.color]="isFav(contact)?'orange':'black'"
