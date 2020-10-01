@@ -1,13 +1,15 @@
 <!-- FAVS -->
 <div *ngIf="favsView" class="favs">
-  {{favsView}}
   <app-contactsidebar></app-contactsidebar>
 </div>
 
 <!-- TOOLBAR -->
   <div class="d-flex justify-content-between align-items-center px-3 py-1">
-    <h4 class="m-2"*ngIf="meta$ | async as metausers">
+    <h4 class="m-2" *ngIf="!favsView && meta$ | async as metausers">
       <i class="fas fa-users"></i> {{ metausers.pagination?.total }}
+    </h4>
+    <h4 *ngIf="favsView && favs$ | async as favs" class="m-2">
+      {{ favs.length }} Favs
     </h4>
 
     <span>
@@ -26,54 +28,56 @@
 
   </div>
 
-  <!-- SEARCHBAR -->
-  <input #searchInput (keyup)="searchOnDb(searchInput.value)" placeholder="rechercher..." type="text" 
-  class="form-control">
+  <div *ngIf="!favsView">
+    <!-- SEARCHBAR -->
+    <input #searchInput (keyup)="searchOnDb(searchInput.value)" placeholder="rechercher..." type="text" 
+    class="form-control">
 
-  <!-- LIST -->
-  <ul class="users-list list-group">
-      <li [routerLink]="['/users/detail', contact.id]" *ngFor="let contact of users$ | async" class="list-group-item d-flex justify-content-between">
-        <!-- <pre>{{contact | json }}</pre> -->
-          <!-- espace 1 du li -->
-          <span class="d-flex justity-content-center align-items-center">
-              <button (click)="deleteContact($event, contact)" class="btn btn-sm btn-medium">
-                  <i class="far fa-trash-alt"></i>
-              </button>
-              <span [class.isActive]="contact.status=='Active'" class="badge badge-tertiary avatar">
-                {{contact.name | printInitials}}
-              </span> 
-              {{contact.name }}
-          </span>
+    <!-- LIST -->
+    <ul class="users-list list-group">
+        <li [routerLink]="['/users/detail', contact.id]" *ngFor="let contact of users$ | async" class="list-group-item d-flex justify-content-between">
+          <!-- <pre>{{contact | json }}</pre> -->
+            <!-- espace 1 du li -->
+            <span class="d-flex justity-content-center align-items-center">
+                <button (click)="deleteContact($event, contact)" class="btn btn-sm btn-medium">
+                    <i class="far fa-trash-alt"></i>
+                </button>
+                <span [class.isActive]="contact.status=='Active'" class="badge badge-tertiary avatar">
+                  {{contact.name | printInitials}}
+                </span> 
+                {{contact.name }}
+            </span>
 
-          <!-- espace 2 du li  -->
-          <span>
-              <!-- Ajouté le {{contact.created_at | date:'dd/MM/yyyy'}} -->
-              <button (click)="addUserToFavs($event, contact)" class="btn btn-light">
-                  <i  [class.fas]="isFav(contact)" 
-                      [class.far]="isFav(contact)==false" 
-                      [style.color]="isFav(contact)?'orange':'black'"
-                      class="far fa-star"></i>
-              </button>
-          </span>
-      </li>
-  </ul>
+            <!-- espace 2 du li  -->
+            <span>
+                <!-- Ajouté le {{contact.created_at | date:'dd/MM/yyyy'}} -->
+                <button (click)="addUserToFavs($event, contact)" class="btn btn-light">
+                    <i  [class.fas]="isFav(contact)" 
+                        [class.far]="isFav(contact)==false" 
+                        [style.color]="isFav(contact)?'orange':'black'"
+                        class="far fa-star"></i>
+                </button>
+            </span>
+        </li>
+    </ul>
 
-  <!-- PAGINATION  -->
-  <div *ngIf="meta$ | async as metausers" class="d-flex align-items-center justify-content-between mt-1">
-    <p >Page {{ metausers.pagination?.page }}/ {{ metausers.pagination?.pages}}</p>
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        <li  class="page-item">
-          <button (click)="previousPage(metausers.pagination?.page)" [disabled]="metausers.pagination?.page==1" class="btn btn-link" href="#">
-          précédent
-          </button>
-          </li>
-        <li class="page-item">
-          <button (click)="nextPage(metausers.pagination.page)" [disabled]="metausers.pagination?.pages==1"class="btn btn-link" href="#">
-            suivant
+    <!-- PAGINATION  -->
+    <div *ngIf="meta$ | async as metausers" class="d-flex align-items-center justify-content-between mt-1">
+      <p >Page {{ metausers.pagination?.page }}/ {{ metausers.pagination?.pages}}</p>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li  class="page-item">
+            <button (click)="previousPage(metausers.pagination?.page)" [disabled]="metausers.pagination?.page==1" class="btn btn-link" href="#">
+            précédent
             </button>
-          </li>
-      </ul>
-    </nav>
+            </li>
+          <li class="page-item">
+            <button (click)="nextPage(metausers.pagination.page)" [disabled]="metausers.pagination?.pages==1"class="btn btn-link" href="#">
+              suivant
+              </button>
+            </li>
+        </ul>
+      </nav>
+    </div>
   </div>
 

@@ -137,7 +137,8 @@ export class ContactlistComponent implements OnInit {
 
 
   switchFavsOrListView() {
-    this.favsView == false ? true : false;
+    console.log('hello')
+    this.favsView = this.favsView == false ? true : false;
   }
 
 
