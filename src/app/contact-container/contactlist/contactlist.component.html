@@ -19,7 +19,7 @@
 
   <!-- LIST -->
   <ul class="users-list list-group">
-      <li *ngFor="let contact of users$ | async" class="list-group-item d-flex justify-content-between">
+      <li [routerLink]="['/', contact.id]" *ngFor="let contact of users$ | async" class="list-group-item d-flex justify-content-between">
         <!-- <pre>{{contact | json }}</pre> -->
           <!-- espace 1 du li -->
           <span class="d-flex justity-content-center align-items-center">
