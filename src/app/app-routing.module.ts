@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   // je définis des routes
   { path:'', component: ContactContainerComponent },
-  { path:'/:id', component: ContactDetailComponent}
+  { path:'/:id', component: ContactDetailComponent},
   { path: 'api', component: ApiComponent },
   { path: 'login', component : LoginComponent }
 
