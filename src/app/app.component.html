@@ -1,0 +1,53 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">ContactApp</a>
+      <div class="d-flex justify-content-between" id="navbarText">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a routerLink="/api" class="nav-link" href="#">API</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a (click)="setToken()" class="nav-link" href="#">Login</a>
+          </li>
+          <li class="nav-item active">
+            <a (click)="logout()" class="nav-link" href="#">Déconnexion</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+</nav>
+</header>
+
+
+
+<main>
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+  <div class="container-fluid">
+    <div class="row">
+  
+      <!-- sidebar -->
+      <div class="col-3 sidebar">
+        <div class="sidebar-sticky">
+          <!-- COMPONENT contactsidebar  -->
+          <app-contactsidebar></app-contactsidebar>
+           
+         
+        </div>
+      </div>
+  
+       <!-- contenu -->
+      <div class="col-9">
+        <!-- COMPONENT contactlist  -->
+        <app-contactlist></app-contactlist>
+        
+      </div>
+    </div>
+  </div>
+
+</main>
+
+
+
