@@ -9,9 +9,16 @@
               (click)="sortByName()">
               <i [class.fa-arrow-circle-up]="sortByNameAscOrDsc=='ASC'" 
                 [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
-              class="fas fa-arrow-circle-up pr-2"></i>Nom        
+              class="fas fa-arrow-circle-up pr-1"></i>Nom        
       </button>
       <button routerLink='/users/add' class="btn btn-primary btn-sm">Ajouter</button>
+      <button class="btn btn-light btn-sm" 
+              (click)="sortByName()">
+              <i[class.far]="sortByNameAscOrDsc=='ASC'" 
+                [style.color]="sortByNameAscOrDsc=='DSC'?'orange':'black'"
+                [class.fas]="sortByNameAscOrDsc=='DSC'"
+              class="far fa-star pr-0"></i>        
+      </button>
     </span>
 
   </div>
