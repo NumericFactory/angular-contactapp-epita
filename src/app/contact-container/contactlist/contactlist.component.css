@@ -12,7 +12,7 @@
    background: aquamarine;
 }
 ul.users-list {
-  height: calc(100vh - 201px);
+  height: calc(100vh - 207px);
   overflow:auto;
 }
 li {
