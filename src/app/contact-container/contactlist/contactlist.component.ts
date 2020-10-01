@@ -77,13 +77,9 @@ export class ContactlistComponent implements OnInit {
     
   }
   previousPage(actualPage:number) {
-    if((actualPage == 1)) {
-
-    }
-    else {
-      this.userService.loadUsersWithMetaPagination(actualPage-1)
-    }
-     
+    if((actualPage != 1)) {
+       this.userService.loadUsersWithMetaPagination(actualPage-1)
+    }  
   }
 
   async deleteContact(ev, contact){
@@ -95,7 +91,8 @@ export class ContactlistComponent implements OnInit {
         // Si la suppression est OK et que l'API répond 204
         if(response.code == 204) {
             let index = this.userService.getUsersValue()
-                        .indexOf(this.userService.getUsersValue().find(user => user.id === contact.id));
+                        .indexOf(this.userService.getUsersValue()
+                        .find(user => user.id === contact.id));
             this.userService.getUsersValue().splice(index, 1);
             // Je remet à jour la vue
             this.userService.setUsersSubject(this.userService.getUsersValue());
@@ -104,7 +101,6 @@ export class ContactlistComponent implements OnInit {
             // Je remet à jour la vue
             this.userService.setUsersMetaSubject(meta)
         }
-
       }
       catch(err) {
         console.log(err)
@@ -112,25 +108,23 @@ export class ContactlistComponent implements OnInit {
     }
   }
 
-
-
-
   sortByName() {
     this.sortByNameAscOrDsc=='ASC' ? this.sortByNameAscOrDsc='DSC' :this.sortByNameAscOrDsc='ASC';
     this.userService.getUsersValue().sort( (a, b) => {
       if(this.sortByNameAscOrDsc=='ASC') {
         return a.name<b.name ? -1 : 1
       }
-      else {
+      if(this.sortByNameAscOrDsc=='DSC') {
         return b.name<a.name ? -1 : 1
       }
+      return 0
     })
   }
 
   isFav(contact:User): boolean {
     // console.log('contact : ', contact);
     // console.log('getFavsValue() : ', this.userService.getFavsValue());
-    let contactInFavs = this.userService.getFavsValue().find( user => user.id == contact.id);
+    let contactInFavs = this.userService.getFavsValue().find(user => user.id == contact.id);
     if(contactInFavs != undefined) {
       return true;
     }

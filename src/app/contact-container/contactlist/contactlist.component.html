@@ -9,7 +9,7 @@
               (click)="sortByName()">
               <i [class.fa-arrow-circle-up]="sortByNameAscOrDsc=='ASC'" 
                 [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
-              class="fas fa-arrow-circle-up pr-2"></i>Tri par nom        
+              class="fas fa-arrow-circle-up pr-2"></i>Nom        
       </button>
       <button routerLink='/users/add' class="btn btn-primary btn-sm">Ajouter</button>
     </span>
@@ -26,7 +26,7 @@
         <!-- <pre>{{contact | json }}</pre> -->
           <!-- espace 1 du li -->
           <span class="d-flex justity-content-center align-items-center">
-              <button (click)="deleteContact($event, contact)" class="btn">
+              <button (click)="deleteContact($event, contact)" class="btn btn-sm btn-medium">
                   <i class="far fa-trash-alt"></i>
               </button>
               <span [class.isActive]="contact.status=='Active'" class="badge badge-tertiary avatar">
