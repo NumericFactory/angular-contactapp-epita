@@ -1,6 +1,7 @@
 import { Component, VERSION } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'my-app',
@@ -9,10 +10,11 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent  {
 
-  constructor(private authService:AuthService) { }
+  isLoading$:Observable<boolean>;
+  constructor(private authService:AuthService, public loaderService: LoaderService) { }
 
   ngOnInit() {
-
+    this.isLoading$ = this.loaderService.isLoading$;
   }
 
   setToken() {

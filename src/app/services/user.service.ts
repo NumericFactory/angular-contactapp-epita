@@ -4,11 +4,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { User } from '../models/user.interface';
 import { AuthService } from './auth.service';
+import { LoaderService } from './loader.service';
 
 @Injectable()
 export class UserService {
 
-  constructor(private http:HttpClient, private authService:AuthService) { }
+  constructor(
+    private http:HttpClient, 
+    private authService:AuthService,
+    private loaderService:LoaderService
+    ) { }
 
   // LA DONNEE UNIQUE QUI PEUT ÊTRE DISTRIBUÉE à TOUS LES COMPONENTS
   private _usersSubject:BehaviorSubject<User[]> = new BehaviorSubject([]);
@@ -47,19 +52,24 @@ export class UserService {
   }
 
   searchUsers(name:string) {
-    return this.http.get('https://gorest.co.in/public-api/users?name='+name).toPromise()
+    // this.loaderService.showLoader();
+    return this.http.get('https://gorest.co.in/public-api/users?name='+name).pipe(delay(2000)).toPromise()
     .then( (res:any) => {
       this._usersSubject.next(res.data);
-      this._usersMetaSubject.next(res.meta)
-      }) 
+      this._usersMetaSubject.next(res.meta);
+      // this.loaderService.hideLoader()
+      })
   }
 
   async removeContactOnDb(contactId) {
-    return this.http.delete('https://gorest.co.in/public-api/users/'+contactId, {
-      headers: new HttpHeaders().set(
-        'Authorization', 'Bearer ' + this.authService.getTokenFromLocalStorage()
-      )
-    }).toPromise()
+    return this.http.delete('https://gorest.co.in/public-api/users/'+contactId
+    // , 
+    // {
+    //   headers: new HttpHeaders().set(
+    //     'Authorization', 'Bearer ' + this.authService.getTokenFromLocalStorage()
+    //   )
+    // }
+    ).toPromise()
   }
 
 

@@ -5,8 +5,9 @@ import { ContactlistComponent } from './contactlist/contactlist.component';
 
 
 const routes: Routes = [
-  {path: '', component: ContactlistComponent},
-  {path: 'api', component: ApiComponent},
+  // je définis des routes
+  { path:'', component: ContactlistComponent },
+  { path: 'api', component: ApiComponent }
 ];
 
 @NgModule({
