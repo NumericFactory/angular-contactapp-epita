@@ -5,6 +5,7 @@ import { ContactContainerComponent } from './contact-container/contact-container
 import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
 import { LoginComponent } from './login/login.component';
 import { ContactlistComponent} from './contact-container/contactlist/contactlist.component';
+import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
 
 
 
