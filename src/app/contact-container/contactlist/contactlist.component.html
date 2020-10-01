@@ -4,13 +4,16 @@
       {{ metausers.pagination?.total }} contacts
     </h4>
 
+    <span>
+      <button class="btn btn-link" 
+              (click)="sortByName()">
+              <i [class.fa-arrow-circle-up]="sortByNameAscOrDsc=='ASC'" 
+                [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
+              class="fas fa-arrow-circle-up pr-2"></i>Tri par nom        
+      </button>
+      <button routerLink='/contact-add' class="btn btn-primary">Ajouter un contact</button>
+    </span>
 
-    <button class="btn btn-link" 
-            (click)="sortByName()">
-            <i [class.fa-arrow-circle-up]="sortByNameAscOrDsc=='ASC'" 
-              [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
-            class="fas fa-arrow-circle-up pr-2"></i>Tri par nom        
-    </button>
   </div>
 
   <!-- SEARCHBAR -->

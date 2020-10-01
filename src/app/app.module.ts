@@ -31,7 +31,17 @@ import { ContactFormComponent } from './contact-container/contact-form/contact-f
     AppRoutingModule,
     MaterialModule 
   ],
-  declarations: [ AppComponent, ContactlistComponent, ContactsidebarComponent, PersoUppercasePipe, ApiComponent, ContactContainerComponent, LoginComponent, ContactDetailComponent, ContactFormComponent ],
+  declarations: [ 
+    AppComponent, 
+    ContactlistComponent, 
+    ContactsidebarComponent, 
+    PersoUppercasePipe, 
+    ApiComponent, 
+    ContactContainerComponent, 
+    LoginComponent, 
+    ContactDetailComponent, 
+    ContactFormComponent ],
+    
   bootstrap:    [ AppComponent ],
   providers: [
     UserService, AuthService, LoaderService,
