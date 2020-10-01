@@ -53,7 +53,9 @@ export class UserService {
 
   searchUsers(name:string) {
     // this.loaderService.showLoader();
-    return this.http.get('https://gorest.co.in/public-api/users?name='+name).pipe(delay(2000)).toPromise()
+    return this.http.get('https://gorest.co.in/public-api/users?name='+name)
+    //.pipe(delay(2000))
+    .toPromise()
     .then( (res:any) => {
       this._usersSubject.next(res.data);
       this._usersMetaSubject.next(res.meta);

@@ -21,6 +21,7 @@ import { ContactContainerComponent } from './contact-container/contact-container
 import { LoginComponent } from './login/login.component';
 import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
 import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
+import { Error404Component } from './error404/error404.component';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { ContactFormComponent } from './contact-container/contact-form/contact-f
     ContactContainerComponent, 
     LoginComponent, 
     ContactDetailComponent, 
-    ContactFormComponent ],
+    ContactFormComponent, Error404Component ],
 
   bootstrap:    [ AppComponent ],
   providers: [

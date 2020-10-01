@@ -1,7 +1,7 @@
 <!-- TOOLBAR -->
   <div class="d-flex justify-content-between align-items-center px-3 py-1">
-    <h4 *ngIf="meta$ | async as metausers">
-      {{ metausers.pagination?.total }} contacts
+    <h4 class="m-2"*ngIf="meta$ | async as metausers">
+      <i class="fas fa-users"></i> {{ metausers.pagination?.total }}
     </h4>
 
     <span>
@@ -11,7 +11,7 @@
                 [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
               class="fas fa-arrow-circle-up pr-2"></i>Tri par nom        
       </button>
-      <button routerLink='/contact-add' class="btn btn-primary">Ajouter un contact</button>
+      <button routerLink='/users/add' class="btn btn-primary btn-sm">Ajouter</button>
     </span>
 
   </div>

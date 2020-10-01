@@ -1,7 +1,5 @@
-p {
-  font-family: Lato;
-}
-.sidebar {
-  position: sticky;
-  background:#f3f3f3;
+mat-progress-bar {
+  position: absolute;
+  top: 55px;
+  z-index:1000
 }

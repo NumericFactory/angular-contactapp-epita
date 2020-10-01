@@ -6,6 +6,7 @@ import { ContactDetailComponent } from './contact-container/contact-detail/conta
 import { LoginComponent } from './login/login.component';
 import { ContactlistComponent} from './contact-container/contactlist/contactlist.component';
 import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
+import { Error404Component } from './error404/error404.component';
 
 
 
@@ -15,19 +16,21 @@ const routes: Routes = [
   // { path:':id', component: ContactDetailComponent},
   // { path: 'api', component: ApiComponent },
   // { path: 'login', component : LoginComponent }
-  { path: 'contact-add', component: ContactFormComponent},
-  { path: '', component: ApiComponent},
+
+  { path: '', redirectTo:'users', pathMatch: 'full' },
+  { path: 'api', component: ApiComponent},
+  { path: 'login', component : LoginComponent },
   {
-      path : 'users', 
-      component: ContactContainerComponent,
+    path : 'users', 
+    component: ContactContainerComponent,
       children : [
         { path: '', redirectTo: 'list', pathMatch: 'full' },
         { path: 'list', component: ContactlistComponent},
-        { path: 'detail/:id', component: ContactDetailComponent}
+        { path: 'detail/:id', component: ContactDetailComponent},
+        { path: 'add', component: ContactFormComponent},
       ]
-
   },
-  { path: 'login', component : LoginComponent }
+  { path: '**', component : Error404Component}
 ];
 
 @NgModule({
