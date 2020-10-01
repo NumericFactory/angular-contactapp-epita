@@ -14,7 +14,9 @@
       <button routerLink='/users/add' class="btn btn-primary btn-sm">Ajouter</button>
       <button class="btn btn-light btn-sm" 
               (click)="sortByName()">
-              <i class="far fa-star pr-0"></i>   
+              <i [class.fa-arrow-circle-up]="sortByNameAscOrDsc=='ASC'" 
+                [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
+              class="fas fa-arrow-circle-up pr-1"></i> 
       </button>
     </span>
 
