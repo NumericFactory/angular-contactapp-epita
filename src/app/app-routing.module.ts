@@ -14,23 +14,19 @@ const routes: Routes = [
   // { path:':id', component: ContactDetailComponent},
   // { path: 'api', component: ApiComponent },
   // { path: 'login', component : LoginComponent }
-  { path: 'api', component: ApiComponent},
+  { path: 'contact-add', component: ContactFormComponent},
+  { path: '', component: ApiComponent},
   {
       path : 'users', 
       component: ContactContainerComponent,
-
       children : [
-        { path: '', redirectTo: 'list' },
-          { path: 'list', ContactlistComponent},
-          { path: 'detail/:id', ContactDetailComponent},
+        { path: '', redirectTo: 'list', pathMatch: 'full' },
+        { path: 'list', component : ContactlistComponent},
+        { path: 'detail/:id', component :ContactDetailComponent}
       ]
 
   },
   { path: 'login', component : LoginComponent }
-
-
-
-
 ];
 
 @NgModule({

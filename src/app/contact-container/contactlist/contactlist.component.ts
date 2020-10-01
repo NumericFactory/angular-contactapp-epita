@@ -86,7 +86,8 @@ export class ContactlistComponent implements OnInit {
      
   }
 
-  async deleteContact(contact){
+  async deleteContact(ev, contact){
+    ev.stopPropagation();
     if(confirm('Supprimer ce contact ?')) {
       try {
         // await va attendre que la promise soit résolue; 
