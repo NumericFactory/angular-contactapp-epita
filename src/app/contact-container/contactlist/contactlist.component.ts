@@ -16,6 +16,7 @@ export class ContactlistComponent implements OnInit {
   meta$:Observable<any>;
 
   sortByNameAscOrDsc:string='ASC';
+  favsView:boolean = false; //affiche la vue favoris ou la vue list
 
   constructor(private userService:UserService ) { }
 
@@ -132,6 +133,11 @@ export class ContactlistComponent implements OnInit {
       return false;
     }
     // return this.userService.getFavsValue().includes(contact)
+  }
+
+
+  switchFavsOrListView() {
+    this.favsView == false ? true : false;
   }
 
 
