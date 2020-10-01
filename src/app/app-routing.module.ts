@@ -24,7 +24,7 @@ const routes: Routes = [
     path : 'users', 
     component: ContactContainerComponent,
       children : [
-        { path: '', redirectTo: 'detail', pathMatch: 'full' },
+        { path: '', redirectTo: 'detail/1', pathMatch: 'full' },
         // { path: 'list', component: ContactlistComponent},
         { path: 'detail/:id', component: ContactDetailComponent},
         { path: 'add', component: ContactFormComponent},
