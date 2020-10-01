@@ -1,22 +1,29 @@
 <div class="container">
   <h2>Ajouter un contact</h2>
 
-  <form>
-
+  <form (ngSubmit)="addContact(contact)" [formGroup]="contact">
     <div class="form-group">
       <label>Genre</label>
-      <select>
-        <option value="">Homme</option>
-        <option value="">Femme</option>
+      <select formControlName="gender" class="form-control">
+        <option value="Male">Homme</option>
+        <option value="Female">Femme</option>
       </select>
     </div>
 
     <div class="form-goup">
       <label>Nom</label>
-      <input type="text">
+      <input formControlName="name" class="form-control" type="text" />
+  
     </div>
 
+     <div class="form-goup">
+      <label>Email</label>
+      <input formControlName="email" class="form-control"type="text" />
+    </div>
 
+    <input formControlName="status" value="" type="hidden">
+
+    <button class="btn btn-primary" type="submit">Envoyer</button>
   </form>
 
 </div>

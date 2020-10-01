@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ContactlistComponent } from './contact-container/contactlist/contactlist.component';
@@ -29,7 +29,8 @@ import { ContactFormComponent } from './contact-container/contact-form/contact-f
     FormsModule, 
     HttpClientModule, 
     AppRoutingModule,
-    MaterialModule 
+    MaterialModule,
+    ReactiveFormsModule
   ],
   declarations: [ 
     AppComponent, 
@@ -41,7 +42,7 @@ import { ContactFormComponent } from './contact-container/contact-form/contact-f
     LoginComponent, 
     ContactDetailComponent, 
     ContactFormComponent ],
-    
+
   bootstrap:    [ AppComponent ],
   providers: [
     UserService, AuthService, LoaderService,
