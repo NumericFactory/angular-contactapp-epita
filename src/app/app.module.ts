@@ -19,6 +19,7 @@ import { LoaderService } from './services/loader.service';
 import { LoaderInterceptor } from './services/loader.interceptor';
 import { ContactContainerComponent } from './contact-container/contact-container.component';
 import { LoginComponent } from './login/login.component';
+import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
 
 
 @NgModule({
@@ -29,7 +30,7 @@ import { LoginComponent } from './login/login.component';
     AppRoutingModule,
     MaterialModule 
   ],
-  declarations: [ AppComponent, ContactlistComponent, ContactsidebarComponent, PersoUppercasePipe, ApiComponent, ContactContainerComponent, LoginComponent ],
+  declarations: [ AppComponent, ContactlistComponent, ContactsidebarComponent, PersoUppercasePipe, ApiComponent, ContactContainerComponent, LoginComponent, ContactDetailComponent ],
   bootstrap:    [ AppComponent ],
   providers: [
     UserService, AuthService, LoaderService,
