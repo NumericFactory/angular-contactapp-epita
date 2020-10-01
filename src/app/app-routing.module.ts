@@ -10,7 +10,7 @@ const routes: Routes = [
   // je définis des routes
   { path:'', component: ContactContainerComponent },
   { path: 'api', component: ApiComponent },
-  { path: 'login', component : LoginComponent}
+  { path: 'login', component : LoginComponent }
 ];
 
 @NgModule({
