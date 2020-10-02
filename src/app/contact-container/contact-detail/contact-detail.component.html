@@ -5,12 +5,12 @@ contact-detail works!
   {{ ressources | json }}
 </p>
 <div class="container">
-  <h2>commentaires</h2>
+  <h2>Articles</h2>
   <hr>
   <div  *ngIf="userRessources$ | async as ressources">
-    <div *ngFor="let comment of ressources.comments" class="card">
-      <div class="card-header">{{comment.title}}</div>
-      <div class="card-body">{{comment.body}}</div>
+    <div *ngFor="let post of ressources.posts" class="card">
+      <div class="card-header">{{post.title}}</div>
+      <div class="card-body">{{post.body}}</div>
     </div>
   </div>
 
