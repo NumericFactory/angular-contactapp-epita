@@ -4,3 +4,13 @@ contact-detail works!
 <p *ngIf="userRessources$ | async as ressources">
   {{ ressources | json }}
 </p>
+<div class="container">
+  <h2>commentaires</h2>
+  <hr>
+  <div  *ngIf="userRessources$ | async as ressources">
+    <div *ngFor="ressources.comments" class="card">
+      
+    </div>
+  </div>
+
+</div>
