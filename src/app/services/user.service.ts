@@ -79,11 +79,11 @@ export class UserService {
     }
   }
 
-  private async loadUserPosts(userId) {
-    this.http.get('https://gorest.co.in/public-api/users/'+userId+'/posts').toPromise()
+  private async loadUserPosts(userId):Promise<any> {
+    return this.http.get('https://gorest.co.in/public-api/users/'+userId+'/posts').toPromise()
   }
-  private async loadUserTodos(userId) {
-     this.http.get('https://gorest.co.in/public-api/users/'+userId+'/todos').toPromise()
+  private async loadUserTodos(userId):Promise<any> {
+     return this.http.get('https://gorest.co.in/public-api/users/'+userId+'/todos').toPromise()
   }
 
   async removeContactOnDb(contactId) {
