@@ -17,7 +17,7 @@ export class ContactFormComponent implements OnInit {
     this.contact = this.fb.group({
       gender: ['', Validators.required],
       name: ['', [ Validators.minLength(2), Validators.maxLength(5)]],
-      email: ['',  Validators.email],
+      email: ['', [ Validators.required, Validators.email ]],
       status: new FormControl()
     });
 
@@ -26,7 +26,13 @@ export class ContactFormComponent implements OnInit {
   }
 
   addContact(contact) {
-
+    console.log(contact)
+    if(contact.status=='INVALID') {
+      alert('Corrigez vos erreurs')
+    }
+    else {
+      alert('Ok')
+    }
   }
 
 }
