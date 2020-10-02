@@ -14,8 +14,9 @@
                 [class.fa-arrow-circle-down]="sortByNameAscOrDsc=='DSC'"
               class="fas fa-arrow-circle-up pr-1"></i>nom</button>
       <button routerLink='/users/add' class="btn btn-primary btn-sm">Ajouter</button>
+      <!-- Icon segment favView ou ListView -->
       <button (click)="switchFavsOrListView()" class="btn btn-light btn-sm">
-              <i [class]="!favsView?'fas fa-star':'fas fa-arrow-right'"
+              <i ngClass="{'fas fa-star' : !favsView, 'fas fa-arrow-right':favsView}"
                 [style.color]="favsView?'orange':'black'"
               class="fas fa-star pr-0"></i> 
       </button>
