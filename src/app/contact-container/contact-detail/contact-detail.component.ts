@@ -15,12 +15,19 @@ export class ContactDetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, private userService:UserService) { }
 
   ngOnInit() {
-    this.userId = this.route.snapshot.params.id; // ex:{id:109}
-    
-    // Charger les posts, comments et todos du user
-    this.userService.loadUserRessources(this.userId);
-    // S'abonner à l'Observable
     this.userRessources$ = this.userService.userRessources$
+    
+    //this.userId = this.route.snapshot.params.id; // ex:{id:109}
+    this.route.params.subscribe(routeParams => {
+      // Charger les posts, comments et todos du user
+      this.userService.loadUserRessources(routeParams.id);
+      // S'abonner à l'Observable
+     
+    });
+    
+   
+  
+    
 
   }
 

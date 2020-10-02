@@ -68,10 +68,10 @@ export class UserService {
 
   async loadUserRessources(userId) {
     try {
+      console.log('ok')
       let posts = await this.loadUserPosts(userId);
-      let comments = await this.loadUserComments(userId);
       let todos = await this.loadUserTodos(userId);
-      let ressources = {posts, comments, todos};
+      let ressources = {posts, todos};
       this._userRessourceSubject.next(ressources);
     }
     catch(err) {
@@ -81,9 +81,6 @@ export class UserService {
 
   private async loadUserPosts(userId) {
     this.http.get('https://gorest.co.in/public-api/users/'+userId+'/posts').toPromise()
-  }
-  private async loadUserComments(userId) {
-     this.http.get('https://gorest.co.in/public-api/users/'+userId+'/comments').toPromise()
   }
   private async loadUserTodos(userId) {
      this.http.get('https://gorest.co.in/public-api/users/'+userId+'/todos').toPromise()
