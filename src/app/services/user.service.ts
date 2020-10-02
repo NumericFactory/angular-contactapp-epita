@@ -20,12 +20,15 @@ export class UserService {
   private _usersMetaSubject:BehaviorSubject<any> = new BehaviorSubject({})
 
   private _favsSubject:BehaviorSubject<User[]> = new BehaviorSubject([]);
+  private _userRessourceSubject:BehaviorSubject<any> = new BehaviorSubject({});
 
   // users$ est un Observable qui peut être consommé par nos components
   readonly users$:Observable<User[]> = this._usersSubject.asObservable()
   readonly meta$:Observable<any> = this._usersMetaSubject.asObservable()
   // favs$ est un Observable qui peut être consommé par nos components;
   public favs$:Observable<User[]> = this._favsSubject.asObservable();
+  // userRessources$ { posts, comments, todos }
+  public userRessources$:Observable<any> = this._userRessourceSubject.asObservable();
 
   loadUsers() {
     // 1 faire la requete API
@@ -61,6 +64,29 @@ export class UserService {
       this._usersMetaSubject.next(res.meta);
       // this.loaderService.hideLoader()
       })
+  }
+
+  async loadUserRessources(userId) {
+    try {
+      let posts = await this.loadUserPosts(userId);
+      let comments = await this.loadUserComments(userId);
+      let todos = await this.loadUserTodos(userId);
+      let ressources = {posts, comments, todos};
+      this._userRessourceSubject.next(ressources);
+    }
+    catch(err) {
+      console.log(err)
+    }
+  }
+
+  private async loadUserPosts(userId) {
+    this.http.get('https://gorest.co.in/public-api/users/'+userId+'/posts').toPromise()
+  }
+  private async loadUserComments(userId) {
+     this.http.get('https://gorest.co.in/public-api/users/'+userId+'/comments').toPromise()
+  }
+  private async loadUserTodos(userId) {
+     this.http.get('https://gorest.co.in/public-api/users/'+userId+'/todos').toPromise()
   }
 
   async removeContactOnDb(contactId) {
