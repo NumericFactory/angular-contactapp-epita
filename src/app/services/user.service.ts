@@ -20,7 +20,7 @@ export class UserService {
   private _usersMetaSubject:BehaviorSubject<any> = new BehaviorSubject({})
 
   private _favsSubject:BehaviorSubject<User[]> = new BehaviorSubject([]);
-  private _userRessourceSubject:BehaviorSubject<any> = new BehaviorSubject({});
+  private _userRessourceSubject:BehaviorSubject<any> = new BehaviorSubject({posts:[], todos:[]});
 
   // users$ est un Observable qui peut être consommé par nos components
   readonly users$:Observable<User[]> = this._usersSubject.asObservable()
@@ -71,7 +71,7 @@ export class UserService {
       console.log('ok')
       let posts = await this.loadUserPosts(userId);
       let todos = await this.loadUserTodos(userId);
-      let ressources = {posts, todos};
+      let ressources = {posts:posts['data'], todos:todos['data']};
       this._userRessourceSubject.next(ressources);
     }
     catch(err) {
