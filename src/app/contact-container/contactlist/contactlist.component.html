@@ -36,8 +36,7 @@
 
     <!-- LIST -->
     <ul class="users-list list-group">
-        <li [routerLink]="['/users/detail', contact.id]" *ngFor="let contact of users$ | async" class="list-group-item list-group-item-action d-flex justify-content-between"
-        [routerLinkActive]="active">
+        <li [routerLink]="['/users/detail', contact.id]" *ngFor="let contact of users$ | async" class="list-group-item list-group-item-action d-flex justify-content-between">
           <!-- <pre>{{contact | json }}</pre> -->
             <!-- espace 1 du li -->
             <span class="d-flex justity-content-center align-items-center">
