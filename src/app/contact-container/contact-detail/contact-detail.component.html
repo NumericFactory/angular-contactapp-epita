@@ -8,6 +8,7 @@ contact-detail works!
   <h2>Articles</h2>
   <hr>
   <div  *ngIf="userRessources$ | async as ressources">
+    <p class="text-center">{{post.created_at}}</p>
     <div *ngFor="let post of ressources.posts" class="card">
       <div class="card-header">{{post.title}}</div>
       <div class="card-body">{{post.body}}</div>
