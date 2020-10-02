@@ -16,7 +16,7 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler) {
     // on traite la requete entrante dans le middleware
     let cloneRequestWithToken = request;
-    if(request.url.includes( )) {
+    if(request.url.includes('https://gorest.co.in/public-api')) {
       cloneRequestWithToken = request.clone(
         {
         headers : request.headers.set(
