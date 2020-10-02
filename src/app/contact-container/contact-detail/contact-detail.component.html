@@ -8,8 +8,9 @@ contact-detail works!
   <h2>commentaires</h2>
   <hr>
   <div  *ngIf="userRessources$ | async as ressources">
-    <div *ngFor="ressources.comments" class="card">
-      
+    <div *ngFor="let comment of ressources.comments" class="card">
+      <div class="card-header">{{comment.title}}</div>
+      <div class="card-body">{{comment.body}}</div>
     </div>
   </div>
 
