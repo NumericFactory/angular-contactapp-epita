@@ -1,4 +1,6 @@
 <p>
 contact-detail works!
 </p>
-<pre>{{userRessources$ | async | json }}</pre>
+<pre *ngIf="userRessources$ | async as ressources">
+  {{ ressources | json }}
+</pre>
