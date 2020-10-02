@@ -13,17 +13,17 @@ export class TokenInterceptor implements HttpInterceptor {
 
   constructor(private authService:AuthService) {}
 
-  intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
+  intercept(request: HttpRequest<unknown>, next: HttpHandler) {
     // on traite la requete entrante dans le middleware
     let cloneRequestWithToken = request;
-    if(request.url.includes('https://gorest.co.in/public-api')) {
+    if(request.url.includes( )) {
       cloneRequestWithToken = request.clone(
         {
-        headers : request.headers.set('Authorization', 'Bearer '+ this.authService.getTokenFromLocalStorage()
+        headers : request.headers.set(
+          'Authorization', 'Bearer '+ this.authService.getTokenFromLocalStorage()
         )}
       )
     }
-
     // continue 
     // vers l'interceptor suivant 
     // sinon vers vers le backend
