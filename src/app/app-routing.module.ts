@@ -14,6 +14,8 @@ const routes: Routes = [
   // { path: 'api', component: ApiComponent },
   // { path: 'login', component : LoginComponent }
 
+  // je redéfinis des routes 
+  // avec cette fois des routes enfants de la route /users
   { path: '', redirectTo:'users', pathMatch: 'full' },
   { path: 'api', component: ApiComponent},
   { path: 'login', component : LoginComponent },
