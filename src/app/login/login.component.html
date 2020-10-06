@@ -1,1 +1,32 @@
-<p>Hello Login</p>
+<div class="container">
+  <h2>Login</h2>
+
+  <div class="alert alert-info">
+    Utilisez email: mark@fb.com et mot de passe : angular
+  </div>
+
+  <form (ngSubmit)="loginAction()" [formGroup]="loginForm">
+    
+    <div class="form-goup">
+      <label>Email</label>
+      <input formControlName="email" class="form-control" type="text" />
+  
+    </div>
+
+    <div class="form-goup">
+      <label>Mot de passe</label>
+      <input formControlName="password" class="form-control"type="text" />
+    </div>
+
+    <!-- SUBMIT BUTTON -->
+    <button class="btn btn-primary mt-3" type="submit">Se connecter</button>
+   
+    
+  </form>
+
+  <div [class.alert-success]="loginForm.valid" class="alert">
+    Formulaire valide : {{loginForm.valid}} / Validation sur le champ email
+    <pre>{{loginForm.value | json}}</pre>
+  </div>
+
+</div>
