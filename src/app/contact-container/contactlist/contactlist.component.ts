@@ -3,6 +3,7 @@ import { User } from '../../models/user.interface';
 import { UserService } from '../../services/user.service';
 import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contactlist',
@@ -18,7 +19,7 @@ export class ContactlistComponent implements OnInit {
   sortByNameAscOrDsc:string='ASC';
   favsView:boolean = false; //affiche la vue favoris ou la vue list
 
-  constructor(public userService:UserService ) { }
+  constructor(public userService:UserService, private router:Router ) { }
 
   ngOnInit() {
    // 1 Je fais la requete AJAX
@@ -101,6 +102,11 @@ export class ContactlistComponent implements OnInit {
             meta.pagination.total = meta.pagination.total -1;
             // Je remet à jour la vue
             this.userService.setUsersMetaSubject(meta)
+        }
+        else if(response.code == 401) {
+          if(confirm('Vous n\'êtes pas autorisé(e) à effectuer cette action. Connectez-vous maintenant ? ')) {
+            this.router.navigate(['/login'])
+          }
         }
       }
       catch(err) {

@@ -29,6 +29,9 @@ export class AppComponent  {
 
   logout(ev) {
     ev.preventDefault();
-    localStorage.clear()
+    localStorage.clear();
+    alert("Vous êtes déconnecté(e)");
+    this.router.navigate(['login']);
   }
+
 }
