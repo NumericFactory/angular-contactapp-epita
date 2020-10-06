@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './services/auth.service';
 import { LoaderService } from './services/loader.service';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'my-app',
@@ -13,7 +14,7 @@ export class AppComponent  {
 
   isLoading$:Observable<boolean>;
   constructor(
-    private authService:AuthService, 
+    public authService:AuthService, 
     public loaderService: LoaderService, 
     private router:Router) { }
 
@@ -24,7 +25,7 @@ export class AppComponent  {
   setToken(ev) {
     ev.preventDefault();
     this.authService.setTokenInLocalStorage('f0cb8a50aa5a42eaf3c68511c73742534dcf51dec7e3c71f8aef0a7541a39d8c');
-    this.router.navigate(['login']);
+    this.router.navigate(['/']);
   }
 
   logout(ev) {
