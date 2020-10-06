@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
 import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
 import { Error404Component } from './error404/error404.component';
+import { AuthGuard } from './services/auth.guard';
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { Error404Component } from './error404/error404.component';
 
   bootstrap:    [ AppComponent ],
   providers: [
-    UserService, AuthService, LoaderService,
+    UserService, AuthService, LoaderService, AuthGuard,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}
   ]

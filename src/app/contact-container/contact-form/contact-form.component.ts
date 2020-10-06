@@ -48,17 +48,20 @@ export class ContactFormComponent implements OnInit {
     console.log('champs email est valide ? ', this.contactForm.controls.email.valid ) // true or false
     console.log('quelle(s) validation(s) ne sont pas respectées sur le champ Email ? ', this.contactForm.controls.email.errors);
     /*
-      ON PEUT 
+      ON PEUT maintnenant tester
+      si le formulaire est valide et envoyer la request post
     */
 
-    // if(this.contactForm.valid) {
-    //   this.userService.addUserInDb(contact).subscribe(response => console.log(response))
-    //   alert('Le conctact a bien été ajouté');
+    if(this.contactForm.valid) {
+      this.userService.addUserInDb(this.contactForm.value).subscribe(response => {
+        console.log(response);
+      })
+      
 
-    // }
-    // else {
-    //   alert('Corrigez vos erreurs');
-    // }
+    }
+    else {
+      alert('Corrigez vos erreurs');
+    }
   }
 
 }

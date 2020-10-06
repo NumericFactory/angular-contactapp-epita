@@ -6,6 +6,7 @@ import { ContactDetailComponent } from './contact-container/contact-detail/conta
 import { LoginComponent } from './login/login.component';
 import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
 import { Error404Component } from './error404/error404.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   // je définis des routes
@@ -25,7 +26,7 @@ const routes: Routes = [
       children : [
         { path: '', redirectTo: 'detail/1', pathMatch: 'full' },
         { path: 'detail/:id', component: ContactDetailComponent},
-        { path: 'add', component: ContactFormComponent},
+        { path: 'add', canActivate: [AuthGuard], component: ContactFormComponent},
       ]
   },
   { path: '**', component : Error404Component}
