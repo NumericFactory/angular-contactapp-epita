@@ -70,6 +70,11 @@ export class ContactlistComponent implements OnInit {
     this.users$ = of(users);
   }
 
+  clearSearchInput(searchInput) {
+    searchInput.value='';
+     this.userService.loadUsersWithMeta();
+  }
+
   searchOnDb(userSearch) {
      this.userService.searchUsers(userSearch);
   }

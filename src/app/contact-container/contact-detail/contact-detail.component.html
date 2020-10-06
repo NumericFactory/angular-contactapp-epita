@@ -8,30 +8,40 @@
     </div>
     
     <div *ngIf="user">
-    <div class="d-flex justify-content-between align-items-center">
-        <span>
-          <i [style.color]="user.status=='Active'?'aquamarine':'black'" class="fa fa-circle"></i> {{user?.name}}
-        </span>
-        <small><i class="fa fa-envelope"></i> {{user?.email}}</small>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="col-12 col-md-6">
-        <h2>Todo</h2>
-        <ul *ngIf="todos.length>0" class="list-group">
-          <li class="list-group-item" *ngFor="let todo of todos" >{{todo.title}}</li>
-        </ul>
-        <p *ngIf="todos.length==0">Aucune tâche à réaliser</p>
 
+      <!-- TODOS / DONES LIST  -->
+      <div class="d-flex justify-content-between align-items-center">
+          <span>
+            <i [style.color]="user.status=='Active'?'aquamarine':'black'" class="fa fa-circle"></i> {{user?.name}}
+          </span>
+          <small><i class="fa fa-envelope"></i> {{user?.email}}</small>
       </div>
-      <div class="col-12 col-md-6">
-        <h2>Done</h2>
-        <ul *ngIf="dones.length>0" class="list-group">
-          <li class="list-group-item" *ngFor="let done of dones" >{{done.title}}</li>
-        </ul>
-        <p *ngIf="dones.length==0">Aucune tâche réalisée</p>
+      <hr>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h2>Todo</h2>
+          <ul *ngIf="todos.length>0" class="list-group">
+            <li class="list-group-item" *ngFor="let todo of todos" >{{todo.title}}</li>
+          </ul>
+          <p *ngIf="todos.length==0">Aucune tâche à réaliser</p>
+
+        </div>
+        <div class="col-12 col-md-6">
+          <h2>Done</h2>
+          <ul *ngIf="dones.length>0" class="list-group">
+            <li class="list-group-item" *ngFor="let done of dones" >{{done.title}}</li>
+          </ul>
+          <p *ngIf="dones.length==0">Aucune tâche réalisée</p>
+        </div>
       </div>
-    </div>
+      <!-- POSTS LIST  -->
+      <h2>Articles</h2>
+      <p *ngIf="ressources.posts.length==0">Aucun article</p>
+      <div class="card mb-2" *ngFor="let post of ressources.posts">
+        <div class="card-header">{{post.created_at | date:'dd/MM/yyyy'}}</div>
+        <div class="card-body">{{post?.title}}</div>
+      </div>
+
     </div>
 
   </div>

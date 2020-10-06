@@ -31,8 +31,12 @@
 
   <div *ngIf="!favsView">
     <!-- SEARCHBAR -->
-    <input #searchInput (keyup)="searchOnDb(searchInput.value)" placeholder="rechercher..." type="text" 
-    class="form-control">
+    <div class="input-group">
+      <input #searchInput (keyup)="searchOnDb(searchInput.value)" placeholder="rechercher..." type="text" class="form-control">
+      <button [style.opacity]="searchInput.value.length>1?1:0" (click)="clearSearchInput(searchInput)" class="btn bg-transparent" style="margin-left: -40px; z-index: 100;">
+        <i style="color:#aaa" class="fa fa-times"></i>
+      </button>
+    </div>
 
     <!-- LIST -->
     <ul class="users-list list-group">
