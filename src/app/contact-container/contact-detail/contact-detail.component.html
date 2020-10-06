@@ -6,15 +6,15 @@
     <div class="row">
       <div class="col-12 col-md-6">
         <h2>Todo</h2>
-        <ul>
-          <li *ngFor="let todo of todos" >{{todo.title}}</li>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let todo of todos" >{{todo.title}}</li>
         </ul>
 
       </div>
       <div class="col-12 col-md-6">
         <h2>Done</h2>
-        <ul>
-          <li *ngFor="let done of dones" >{{done.title}}</li>
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let done of dones" >{{done.title}}</li>
         </ul>
       </div>
     </div>

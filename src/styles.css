@@ -2,4 +2,9 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+.error {
+  font-size: .8em;
+  color:brown;
+}
+
 

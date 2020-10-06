@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,9 +10,9 @@ import { FormControl, FormBuilder, Validators, FormGroup } from '@angular/forms'
 })
 export class ContactFormComponent implements OnInit {
 
-  contact:FormGroup;
+  contactForm:FormGroup;
 
-  constructor(private fb:FormBuilder, private http:HttpClient) { }
+  constructor(private fb:FormBuilder, private userService: UserService) { }
 
   ngOnInit() {
     /*
@@ -24,26 +25,40 @@ export class ContactFormComponent implements OnInit {
       -> à la directive formControlName qui relie Les propriétés du formulaire
       (voir la vue : https://stackblitz.com/edit/angular-contactapp-epita?file=src%2Fapp%2Fcontact-container%2Fcontact-form%2Fcontact-form.component.html)
     */
-    this.contact = this.fb.group({
+   
+    this.contactForm = this.fb.group({
       gender: ['', Validators.required],
       name: ['', [ Validators.minLength(2), Validators.maxLength(5)]],
       email: ['', [ Validators.required, Validators.email ]],
       status: new FormControl()
     });
+  
 
     // la méthode setValue sur un formControl permet de setter la valeur d'un champ
-    this.contact.controls.status.setValue('Active');
+    this.contactForm.controls.status.setValue('Active');
 
   }
 
-  addContact(contact) {
-    console.log(contact)
-    if(contact.status=='INVALID') {
-      alert('Corrigez vos erreurs')
-    }
-    else {
-      alert('Ok')
-    }
+  addContactAction() {
+    console.log('form Instance: ', this.contactForm);
+    console.log('contact: ', this.contactForm.value);
+    console.log('valid ?  ', this.contactForm.valid);
+
+    // gestion des erreurs
+    console.log('champs email est valide ? ', this.contactForm.controls.email.valid ) // true or false
+    console.log('quelle(s) validation(s) ne sont pas respectées sur le champ Email ? ', this.contactForm.controls.email.errors);
+    /*
+      ON PEUT 
+    */
+
+    // if(this.contactForm.valid) {
+    //   this.userService.addUserInDb(contact).subscribe(response => console.log(response))
+    //   alert('Le conctact a bien été ajouté');
+
+    // }
+    // else {
+    //   alert('Corrigez vos erreurs');
+    // }
   }
 
 }

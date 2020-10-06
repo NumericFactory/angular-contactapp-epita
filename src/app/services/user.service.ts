@@ -66,6 +66,10 @@ export class UserService {
       })
   }
 
+  addUserInDb(user:User):Observable<any> {
+    return this.http.post('https://gorest.co.in/public-api/users', user);
+  }
+
   async loadUserRessources(userId) {
     try {
       console.log('ok')
