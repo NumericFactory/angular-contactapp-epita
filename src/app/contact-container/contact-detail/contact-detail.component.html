@@ -1,15 +1,23 @@
-<p *ngIf="userRessources$ | async as ressources">
-  {{ ressources | json }}
-</p>
-<div class="container">
-  <h2>Articles</h2>
-  <hr>
-  <!-- <div  *ngIf="userRessources$ | async as ressources">
-    <p class="text-center">{{post.created_at}}</p>
-    <div *ngFor="let post of ressources.posts" class="card">
-      <div class="card-header">{{post.title}}</div>
-      <div class="card-body">{{post.body}}</div>
-    </div>
-  </div> -->
+<div *ngIf="userRessources$ | async as ressources">
+  <!-- {{ ressources | json }} -->
 
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h2>Todo</h2>
+        <ul>
+          <li *ngFor="let todo of todos" >{{todo.title}}</li>
+        </ul>
+
+      </div>
+      <div class="col-12 col-md-6">
+        <h2>Done</h2>
+        <ul>
+          <li *ngFor="let done of dones" >{{done.title}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 </div>
