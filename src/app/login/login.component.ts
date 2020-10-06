@@ -21,6 +21,11 @@ export class LoginComponent implements OnInit {
       - en lui assignant une instance de FormGroup()
       - puis en instanciant chaque élement de formulaire avec une instance de FormControl
       - On peut si on le souhaite spécifier une validation pour un champ à l'aide de la classe Validators
+
+       Le modèle ci-dessous est liée dans la VUE HTML grâce :
+      -> à la directive formGroup qui relie le formulaire
+      -> à la directive formControlName qui relie Les propriétés du formulaire
+      (voir la vue : https://stackblitz.com/edit/angular-contactapp-epita?file=src%2Fapp%2Flogin%2Flogin.component.html)
     */
     this.loginForm = new FormGroup({
       email: new FormControl('', Validators.email),
@@ -34,6 +39,9 @@ export class LoginComponent implements OnInit {
   
   }
 
+  /*
+    Action appeleé à la soumission du forulaire
+  */
   loginAction() {
     console.log(this.loginForm.value); // {email:'', password: ''}
     console.log(this.loginForm.valid); // true ou false

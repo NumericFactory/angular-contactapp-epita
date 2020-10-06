@@ -1,3 +1,27 @@
-<p>
-api works!
-</p>
+<div class="container">
+  <h1>API utilisée ici pour le test</h1>
+  <h2>https://gorest.co.in</h2>
+  > <a target="blank" href="https://gorest.co.in" >Voir la documentation de l'API</a>
+	<ul class="list-group">
+	  <li class="list-group item dark">
+      Récupérer la liste des utilisateurs
+      <div class="alert alert-dark">GET /users</div>
+      </li>
+    <li class="list-group item">
+      Récupérer un utilisateur par son id
+      <div class="alert alert-dark">GET /users/:id</div>
+      </li>
+    <li class="list-group item">
+      Effacer un utilisateur
+      <div class="alert alert-dark">DELETE /users/:id</div>
+      </li>
+    <li class="list-group item">
+      Créer un nouvel utilisateur
+      <div class="alert alert-dark">POST /users</div>
+      </li>
+	</ul>
+  <div class="alert alert-info">Ces requests API sont visibles dans l'application dans src/app/services/<strong>user.service.ts</strong> <br><br> 
+  
+  Rappel : HttpClient renvoie un Observable.<br>
+  Le choix technique est de transformer ces requêtes en Promise, car ces requêtes n'ont pas vocation à être observées, mais juste exécutées une fois à la demande d'un component, et charger le résultat dans un Subject.</div>
+</div>
