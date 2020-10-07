@@ -24,7 +24,7 @@
 </header>
 
 <!-- Barre de loading -->
-<mat-progress-bar *ngIf="isLoading$ | async" mode="indeterminate"></mat-progress-bar>
+<mat-progress-bar [style.opacity]="(isLoading$ | async) ? '1':'0'" color="warn" mode="indeterminate"></mat-progress-bar>
 
 <main>
   

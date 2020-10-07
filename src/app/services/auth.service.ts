@@ -16,13 +16,14 @@ export class AuthService {
   /*
     Methode de vérification de isLogin / check du localStorage
     Nous pourrions également faire un check en interrogeant le back-end
+    pour vérifier la validité du token stocké dans le localStorage
   */
   isLogin():boolean {
     if ( this.getTokenFromLocalStorage()!=null && this.getTokenFromLocalStorage()!=undefined ) {
       return true;
     }
     else {
-       return false;
+      return false;
     }
   }
 

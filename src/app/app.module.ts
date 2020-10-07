@@ -22,6 +22,7 @@ import { LoginComponent } from './login/login.component';
 import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
 import { ContactFormComponent } from './contact-container/contact-form/contact-form.component';
 import { Error404Component } from './error404/error404.component';
+// importer un AuthGard
 import { AuthGuard } from './services/auth.guard';
 
 

@@ -1,6 +1,6 @@
 /* Add application styles & imports to this file! */
 @import 'bootstrap/dist/css/bootstrap.min.css';
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 .error {
   font-size: .8em;
