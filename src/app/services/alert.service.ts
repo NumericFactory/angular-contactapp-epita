@@ -8,7 +8,7 @@ export class AlertService {
 
   showSnackbar(msg) {
      this._snackBar.open(msg, 'fermer',{
-      duration: 5 * 1000,
+      duration: 4 * 1000,
     });
   }
 

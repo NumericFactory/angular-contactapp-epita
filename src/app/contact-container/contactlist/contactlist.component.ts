@@ -108,11 +108,11 @@ export class ContactlistComponent implements OnInit {
             // Je remet à jour la vue
             this.userService.setUsersMetaSubject(meta)
         }
-        else if(response.code == 401) {
-          if(confirm('Vous n\'êtes pas autorisé(e) à effectuer cette action. Connectez-vous maintenant ? ')) {
-            this.router.navigate(['/login'])
-          }
-        }
+        // else if(response.code == 401) {
+        //   if(confirm('Vous n\'êtes pas autorisé(e) à effectuer cette action. Connectez-vous maintenant ? ')) {
+        //     this.router.navigate(['/login'])
+        //   }
+        // }
       }
       catch(err) {
         console.log(err)
