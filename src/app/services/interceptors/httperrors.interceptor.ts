@@ -39,29 +39,29 @@ export class HttpErrorsInterceptor implements HttpInterceptor {
            (exemple: tester les erreurs 401-403-404-500)
         */
 
-        // if(err instanceof HttpErrorResponse) {
-        //   console.log('http error',err)
-        //   switch(err.status) {
-        //     // Non authentifié
-        //     case 401:
-        //       localStorage.removeItem('token');
-        //       this.router.navigate(['login']);
-        //     break;
-        //     // non autorisé
-        //     case 403 : 
-        //       this.alertService.showSnackbar('Vous n\êtes pas autorisé');
-        //     break;
-        //     // pas de ressources disponible
-        //     case 404 : 
-        //       this.alertService.showSnackbar('Ressource inexistante');
-        //       this.router.navigate(['404']);
-        //     break;
-        //     // Erreur Serveur
-        //     case 500 : 
-        //       this.alertService.showSnackbar('Erreur Serveur');
-        //     break;
-        //   }
-        // }
+        if(err instanceof HttpErrorResponse) {
+          console.log('http error',err)
+          switch(err.status) {
+            // Non authentifié
+            case 401:
+              localStorage.removeItem('token');
+              this.router.navigate(['login']);
+            break;
+            // non autorisé
+            case 403 : 
+              this.alertService.showSnackbar('Vous n\êtes pas autorisé');
+            break;
+            // pas de ressources disponible
+            case 404 : 
+              this.alertService.showSnackbar('Ressource inexistante');
+              this.router.navigate(['404']);
+            break;
+            // Erreur Serveur
+            case 500 : 
+              this.alertService.showSnackbar('Erreur Serveur');
+            break;
+          }
+        }
 
         /*
           FIN
