@@ -29,7 +29,9 @@ const routes: Routes = [
         { path: 'add', canActivate: [AuthGuard], component: ContactFormComponent},
       ]
   },
-  { path: '**', component : Error404Component}
+
+  { path: '404', component : Error404Component},
+  { path: '**', component : Error404Component},
 ];
 
 @NgModule({

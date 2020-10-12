@@ -12,11 +12,10 @@ import { AuthService } from './services/auth.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { ApiComponent } from './api/api.component';
-import { TokenInterceptor } from './services/interceptors/token.interceptor';
 // importer des components UI 
 import { MaterialModule } from './shared/material/material.module';
 import { LoaderService } from './services/loader.service';
-import { LoaderInterceptor } from './services/interceptors/loader.interceptor';
+
 import { ContactContainerComponent } from './contact-container/contact-container.component';
 import { LoginComponent } from './login/login.component';
 import { ContactDetailComponent } from './contact-container/contact-detail/contact-detail.component';
@@ -25,6 +24,10 @@ import { Error404Component } from './error404/error404.component';
 // importer un AuthGard
 import { AuthGuard } from './services/auth.guard';
 
+import { LoaderInterceptor } from './services/interceptors/loader.interceptor';
+import { TokenInterceptor } from './services/interceptors/token.interceptor';
+import { HttpErrorsInterceptor } from './services/interceptors/httperrors.interceptor';
+import { AlertService } from './services/alert.service';
 
 @NgModule({
   imports:[ 
@@ -50,7 +53,8 @@ import { AuthGuard } from './services/auth.guard';
   providers: [
     UserService, AuthService, LoaderService, AuthGuard,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
-    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}
+    {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi:true, providers: [AlertService]}
   ]
 })
 export class AppModule { }
