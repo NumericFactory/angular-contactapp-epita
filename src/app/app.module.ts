@@ -28,10 +28,12 @@ import { LoaderInterceptor } from './services/interceptors/loader.interceptor';
 import { TokenInterceptor } from './services/interceptors/token.interceptor';
 import { HttpErrorsInterceptor } from './services/interceptors/httperrors.interceptor';
 import { AlertService } from './services/alert.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports:[ 
     BrowserModule, 
+    BrowserAnimationsModule,
     FormsModule, 
     HttpClientModule, 
     AppRoutingModule,
@@ -51,10 +53,10 @@ import { AlertService } from './services/alert.service';
 
   bootstrap:    [ AppComponent ],
   providers: [
-    UserService, AuthService, LoaderService, AuthGuard,
+    UserService, AuthService, LoaderService, AuthGuard, AlertService,
     {provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi:true},
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true},
-    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi:true, providers: [AlertService]}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorsInterceptor, multi:true}
   ]
 })
 export class AppModule { }

@@ -33,10 +33,11 @@ export class AuthGuard implements CanActivate {
     } // true ou false
     
     // Naviguer sur la page login
-    if(confirm('Vous n\'êtes pas autorisé(e) à effectuer cette action. Connectez-vous maintenant ? ')) {
-      this.router.navigate(['/login']);
-      // you can save redirect url so after authing we can move them back to the page they requested
-    }
+
+    // if(confirm('Vous n\'êtes pas autorisé(e) à effectuer cette action. Connectez-vous maintenant ? ')) {
+    //   this.router.navigate(['/login']); 
+    // }
+
     return false;
    
 

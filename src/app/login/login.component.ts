@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AlertService } from '../services/alert.service';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService:AuthService, private router:Router) { }
+  constructor(private authService:AuthService, private router:Router, private alertService:AlertService) { }
 
   loginForm: FormGroup;
   fakeCredentials = {email:'mark@fb.com', password: 'angular'};
@@ -49,10 +50,10 @@ export class LoginComponent implements OnInit {
       if(JSON.stringify(this.loginForm.value) == JSON.stringify(this.fakeCredentials)) {
         this.authService.setTokenInLocalStorage('f0cb8a50aa5a42eaf3c68511c73742534dcf51dec7e3c71f8aef0a7541a39d8c');
         this.router.navigate(['/']);
-        alert('Ok vous êtes connecté');
+        this.alertService.showSnackbar('Ok vous êtes connecté');
       }
       else {
-        alert('Email ou mot de passe erroné')
+        this.alertService.showSnackbar('Email ou mot de passe erroné')
       }
     }
   }
